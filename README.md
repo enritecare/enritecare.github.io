@@ -7,4 +7,4 @@ This library is a modified version of the [Chart.js](http://www.chartjs.org) lib
 
 This library is open source and released under the MIT license.
 
-DEMO: https://gsprenger.github.io/polar-iaste/
+DEMO: https://enritecare.github.io
