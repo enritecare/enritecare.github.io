@@ -1,7 +1,129 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+	<head>
+		<title>Polar Area Chart Generator</title>
+		<!-- JQuery -->
+		<script src='lib/js/jquery-1.11.0.js'></script>
+		<!-- Bootstrap library -->
+		<link href='lib/css/bootstrap.css' rel='stylesheet'>
+		<script src='lib/js/bootstrap.js'></script>
+		<!-- Color picker -->
+		<link href='lib/css/farbtastic.css' rel='stylesheet'>
+		<script src='lib/js/farbtastic.js'></script>
+		<!-- Custom polar chart library-->
+		<script src="js/polar.js"></script>
+		<!-- App JS & CSS -->
+		<link href='css/polar-iaste.css' rel='stylesheet'>
+		<script src="js/polar-iaste.js"></script>
+		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+		<!-- Analytics -->
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-49577453-1', 'gsprenger.github.io');
+		  ga('send', 'pageview');
+		</script>
+	</head>
+	<body>
+		<h3>Polar Area Chart Generator</h3>
+		<div class='main-container'>
+			<div class='wrapper'>
+				<div class='canvas-container'>
+					<div class='canvasfix'>
+						<div class='btn-container'>
+							<button class='btn btn-success' id='savetoimg'>Save chart to PNG</button>
+						</div>
+						<canvas id="canvas" height="600" width="600"></canvas>
+					</div>
+				</div>
+				<div class='form-container'>
+					<ul class="nav nav-tabs">
+					  <li class="active"><a href="#custom" data-toggle="tab">Custom</a></li>
+					  <li><a href="#4x2" data-toggle="tab">4x2</a></li>
+					  <li><a href="#4x3" data-toggle="tab">4x3</a></li>
+					  <li><a href="#5x2" data-toggle="tab">5x2</a></li>
+					  <li><a href="#2x" data-toggle="tab">2x*</a></li>
+					  <li><a href="#text-zone" data-toggle="tab">Text</a></li>
+					</ul>
+					<div class="tab-content">
+					  <div class="tab-pane fade in active" id="custom">
+					  	<!-- CUSTOM CHART -->
+					  	<div class='btn-group' id='custom-btn-group'>
+					  		<a href='#' class='btn btn-default' id='less'>&#8211;</a>
+					  		<a href='#' class='btn btn-default' id='more'>+</a>
+					  	</div>
+							<div class='btn-container' id='custom-btn-container'>
+								<button class='btn btn-default' id='random'>Random</button>
+					  		<button class='btn btn-primary' id='generate-custom'>Generate</button>
+				  		</div>
+					  </div>
+					  <div class="tab-pane fade" id="4x2">
+						  <!-- 4x2 CHART -->
+					  	<div class='btn-container'>
+					  		<button class='btn btn-primary' id='generate-4x2'>Generate</button>
+				  		</div>
+					  </div>
+					  <div class="tab-pane fade" id="4x3">
+						  <!-- 4x3 CHART -->
+					  	<div class='btn-container'>
+					  		<button class='btn btn-primary' id='generate-4x3'>Generate</button>
+				  		</div>
+					  </div>
+					  <div class="tab-pane fade" id="5x2">
+						  <!-- 5x2 CHART -->
+					  	<div class='btn-container'>
+					  		<button class='btn btn-primary' id='generate-5x2'>Generate</button>
+				  		</div>
+					  </div>
+					  <div class="tab-pane fade" id="2x">
+						  <!-- 2x* CHART -->
+						  <div class='2x-section' id='2x-section-north'>
+						  	<div class='btn-group'>
+						  		<a href='#' class='btn btn-default' id='2x-n-less'>&#8211;</a>
+						  		<a href='#' class='btn btn-default' id='2x-n-more'>+</a>
+						  	</div>
+						  	North section: <input type='text' id='2x-section-n' class='section'>
+							</div>
+							<hr>
+						  <div class='2x-section' id='2x-section-south'>
+						  	<div class='btn-group'>
+						  		<a href='#' class='btn btn-default' id='2x-s-less'>&#8211;</a>
+						  		<a href='#' class='btn btn-default' id='2x-s-more'>+</a>
+						  	</div>
+						  	South section: <input type='text' id='2x-section-s' class='section'>
+						  </div>
+					  	<div class='btn-container'>
+					  		<button class='btn btn-primary' id='generate-2x'>Generate</button>
+				  		</div>
+					  </div>
+					  <div class="tab-pane fade" id="text-zone">
+						  <!-- TEXT CHART -->
+							<select id='text-select' class="form-control">
+							  <option>Custom</option>
+							  <option>4x2</option>
+							  <option>4x3</option>
+							  <option>5x2</option>
+							  <option selected>2x*</option>
+							</select>
+						  <textarea id='text-area'></textarea>
+					  	<div class='btn-container'>
+					  		<button class='btn btn-primary' id='generate-text'>Generate</button>
+				  		</div>
+					  </div>
+					</div>
+					<hr>
+					<div>
+						<a href='https://github.com/gsprenger/polar-iaste/archive/master.zip'><span class='label label-success'>Download library</span></a><br>
+						Polar Area Chart Generator developped for the <a href='http://iaste-researchgroup.org/'>IASTE research group</a>.<br>
+						This library is a modified version of the <a href='http://www.chartjs.org'>Chart.js</a> library and was created by <a href='http://gabrielsprenger.com'>Gabriel Sprenger</a>.<br>
+						This library is <a href='https://github.com/gsprenger/polar-iaste'>open source</a> and released under the <a href='LICENSE'>MIT license</a>.
+					</div>
+				</div>
+			</div>
+		</div>
+		<img id='dlimg' src=''>
+	</body>
 </html>

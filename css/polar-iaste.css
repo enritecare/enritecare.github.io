@@ -1,0 +1,94 @@
+body {
+  padding: 10px;
+}
+
+.main-container {
+  display: table;
+  width: 100%;
+}
+
+.wrapper {
+  display: table-row;
+}
+
+.canvas-container {
+  display: table-cell;
+  width: 610px;
+  height: 650px;
+  position: relative;
+}
+
+.canvasfix {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.form-container {
+  display: table-cell;
+}
+
+h3, .btn-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.tab-pane{
+  padding: 10px;
+  border: 1px solid #DDD;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.well-sm {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.colorselect {
+  position: relative;
+  display: inline;
+}
+
+.colorpicker {
+  position:absolute;
+  top: 20px;
+  right: 0px;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #333;
+}
+
+.min, .max, .val, .angle {
+  width: 50px;
+}
+
+.color, .unit {
+  width: 70px;
+}
+
+.name {
+  width: 100px;
+}
+
+#text-area {
+  width: 100%;
+  height: 300px;
+  font-size: 12px;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+pre {
+  margin-top: 10px;
+  clear: both;
+}
+
+#dlimg {
+  display: none;
+}
