@@ -3,22 +3,22 @@
 ********************/
 function initTextZone() {
   $('#generate-text').click(function () {
-	  console.log('generate click');
-    var selfData, peerData; console.log($('#text-area-self').val());
+	 
+    var selfData, peerData; 
     if ($('#text-area-self').val()) { selfData = JSON.parse($('#text-area-self').val()); }
 	if ($('#text-area-peer').val()) { peerData = JSON.parse($('#text-area-peer').val()); }
-console.log(selfData);	
+
     margin = 100;
-    config = {
+    selfConfig = {
       scaleShowLabels: false,
       scaleShowLine: true,
-      showLabels: true,
+      showLabels: false,
       scaleOverride: true,
       scaleSteps: 10,
       scaleStepWidth: 10,
       scaleStartValue: 0
     };    
-    displayChart(selfData, config, margin)
+    displayChart(selfData, selfConfig, margin)
   });
 }
 
@@ -26,7 +26,7 @@ console.log(selfData);
 /********************
 ** SERVICE METHODS **
 ********************/
-function displayChart(data, config, margin) { console.log('displayChart');
+function displayChart(data, config, margin) { 
   if (config == null) {
     config = {
       scaleShowLabels: false,
@@ -64,7 +64,7 @@ function saveImg() {
 /********************
 **      MAIN       **
 ********************/
-$(document).ready(function() { console.log('main');
+$(document).ready(function() { 
   initTextZone();
   initColorPickers();
 
