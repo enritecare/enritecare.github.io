@@ -5,8 +5,8 @@ function initTextZone() {
   $('#generate-text').click(function () {
 	  console.log('generate click');
     var selfData, peerData; console.log($('#text-area-self').val());
-    selfData = JSON.parse($('#text-area-self').val());
-	//peerData = JSON.parse($('#text-area-peer').val());
+    if ($('#text-area-self').val()) { selfData = JSON.parse($('#text-area-self').val()); }
+	if ($('#text-area-peer').val()) { peerData = JSON.parse($('#text-area-peer').val()); }
 console.log(selfData);	
     margin = 100;
     config = {
