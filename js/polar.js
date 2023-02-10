@@ -575,8 +575,8 @@ window.Chart = function(context, paramMargin){
         ctx.lineTo(area.centerPoint.x, area.centerPoint.y);
         ctx.closePath();
         ctx.fillStyle = data[i].color;
-        //ctx.fill();
-        if(config.segmentShowStroke){
+        ctx.fill();
+        if(true || config.segmentShowStroke){
           ctx.strokeStyle = config.segmentStrokeColor;
           ctx.lineWidth = config.segmentStrokeWidth;
           ctx.stroke();
