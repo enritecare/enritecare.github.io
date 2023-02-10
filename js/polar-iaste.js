@@ -3,9 +3,11 @@
 ********************/
 function initTextZone() {
   $('#generate-text').click(function () {
+	  console.log('generate click');
     var selfData, peerData;
-    selfData = JSON.parse($('#text-area-self').val())
-	peerData = JSON.parse($('#text-area-peer').val())    
+    selfData = JSON.parse($('#text-area-self').val());
+	peerData = JSON.parse($('#text-area-peer').val());
+console.log(selfData);	
     margin = 100;
     config = {
       scaleShowLabels: false,
@@ -24,7 +26,7 @@ function initTextZone() {
 /********************
 ** SERVICE METHODS **
 ********************/
-function displayChart(data, config, margin) {
+function displayChart(data, config, margin) { console.log('displayChart');
   if (config == null) {
     config = {
       scaleShowLabels: false,
