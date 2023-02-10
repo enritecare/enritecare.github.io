@@ -18,6 +18,7 @@ function initTextZone() {
       scaleStepWidth: 10,
       scaleStartValue: 0,
 	  segmentShowStroke: true,
+	  segmentStrokeWidth: 2,
 	  segmentStrokeColor: '#000000'
     };    
     displayChart(selfData, selfConfig, margin)
