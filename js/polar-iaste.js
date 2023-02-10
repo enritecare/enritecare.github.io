@@ -16,7 +16,8 @@ function initTextZone() {
       scaleOverride: true,
       scaleSteps: 10,
       scaleStepWidth: 10,
-      scaleStartValue: 0
+      scaleStartValue: 0,
+	  segmentStrokeColor: '#000000'
     };    
     displayChart(selfData, selfConfig, margin)
   });
