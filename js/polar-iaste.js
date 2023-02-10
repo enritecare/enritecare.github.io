@@ -64,8 +64,8 @@ function saveImg() {
 /********************
 **      MAIN       **
 ********************/
-$(document).ready(function() {
-  initTextZone()
+$(document).ready(function() { console.log('main');
+  initTextZone();
   initColorPickers();
 
   $('#savetoimg').click(function() {
