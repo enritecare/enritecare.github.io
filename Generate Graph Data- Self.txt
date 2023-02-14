@@ -1,0 +1,75 @@
+function onOpen() {
+  const ui = SpreadsheetApp.getUi();
+  ui.createMenu('Lumary 360 Review')
+      .addItem('Generate Graph Data', 'generateGraph')
+      .addToUi();
+}
+
+function generateGraph() {
+
+    const resultRow = 4;
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];    
+    
+    var responses = [];
+    var colour;
+    var title;
+    var copyCell = '';
+
+    title = 'Tasks & Achievement'; 
+    colour = '#999999';
+    responses.push([Performance, J, colour]);
+    responses.push([Accountability, I, colour]);
+    responses.push([Resourcefulness, H, colour]);
+    responses.push([Going Above & Beyond, G, colour]);
+
+    title = 'Growth & Development'; 
+    colour = '#ABABAB';
+    responses.push([Growth Mindset, L, colour]);
+    responses.push([Receiving Feedback, M, colour]);
+    responses.push([Giving Feedback, N, colour]);
+    responses.push([Embracing Change, O, colour]);
+
+    title = 'Relationship'; 
+    colour = '#4E4E4E';
+    responses.push([Kindness & Respect, E, colour]);
+    responses.push([Diversity, D, colour]);
+    responses.push([Team Player, C, colour]);
+    responses.push([Meaningful Relationships, B, colour]);
+
+    title = 'Reactive Gifts'; 
+    colour = '#A6A6A6';
+    responses.push([Conservativeness, T, colour]);
+    responses.push([Critical of Others, S, colour]);
+    responses.push([Passiveness, R, colour]);
+    responses.push([Autocratic, Q, colour]);
+
+    for (var i = 0; i = responses.length-1; i = i + 1) {
+      
+      const fullTitle = responses[i][0];
+      const column = responses[i][1];
+      const colour = responses[i][2];
+
+      var cell ='={min 0,value &ROUND(AVERAGE(' + column + '1' + column + (resultRow-1) + '),2)&,max 4,angle 22.5,unit ,color ' + colour + ',name ,section }';
+
+      sheet.setCurrentCell(sheet.getRange(column + resultRow));
+      sheet.getCurrentCell().setValue(cell);
+
+      if (copyCell.length == 0) {
+        copyCell = '=[&';
+      } else {
+        copyCell = copyCell + '&,&';
+      }
+
+      copyCell = copyCell + column + resultRow;
+    }
+
+    copyCell = copyCell + '&]';
+
+    sheet.setCurrentCell(sheet.getRange(A + (resultRow + 1)));
+    sheet.getCurrentCell().setValue('COPY B' + (resultRow + 1));
+
+    sheet.setCurrentCell(sheet.getRange(B + (resultRow + 1)));
+    sheet.getCurrentCell().setValue(copyCell);
+}
+
+
