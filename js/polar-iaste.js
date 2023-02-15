@@ -47,7 +47,14 @@ function displayChart(data, config, margin) {
 }
 
 function saveImg() {
-  document.location.href = ($("#canvas").get(0).toDataURL()).replace("image/png", "image/octet-stream");
+  //document.location.href = ($("#canvas").get(0).toDataURL()).replace("image/png", "image/octet-stream");
+  var dataURL = ($("#canvas").get(0).toDataURL()).replace("image/png", "image/octet-stream");
+  
+  var a = document.createElement('a');
+  a.href = dataURL;
+  a.download = '360Chart.png';
+  //document.body.appendChild(a);
+  a.click();
 }
 
 /********************
