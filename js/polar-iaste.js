@@ -17,6 +17,7 @@ function initTextZone() {
       scaleSteps: 10,
       scaleStepWidth: 10,
       scaleStartValue: 0,
+	  startAngle: -Math.PI,
 	  segmentShowStroke: true,
 	  segmentStrokeWidth: 2,
 	  segmentStrokeColor: '#000000'
